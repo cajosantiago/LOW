@@ -39,8 +39,8 @@ A comparison between SGD and IW-SGD:
 
 |    alpha    | Test error (%) |
 |-------------|----------------|
-| 0 (SGD)     |     2.863      |
-| 1           |     1.605      |
+| 0 (SGD)     |     2.190      |
+| 1           |     1.440      |
 
 ## Reference
 
