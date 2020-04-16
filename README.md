@@ -1,52 +1,49 @@
-# Simple example of IW-SGD
-A PyTorch implementation of IW-SGD on MNIST with LeNet-5.
+# Official Pytorch implementation of "LOW: Training Deep Neural Networks by Learning Optimal Sample Weights"
+A PyTorch implementation of LOW from the paper "LOW: Training Deep Neural Networks by Learning Optimal Sample Weights" and an example on MNIST with LeNet-5.
 
 ## Recent updates
 1. Original submission
 
-## Motivation
-IW-SGD is a new learning strategy that applies specific weights to training samples according to their gradient norm (inspired by importance sampling)
-
 ## Requirements
 - PyTorch
-- CUDA
+- cvxopt
+- numpy
 
 ## Usage
 
 **Running the demo:**
 
-- IW-SGD:
+- LOW on MNIST:
 
 ```sh
-python demo.py --data <path_to_folder_with_mnist> --save <path_to_save_dir> --alpha=0.9
+python main.py --data <path_to_folder_with_mnist> --save <path_to_save_dir> --loss 'LOW'
 ```
 
-- Standard SGD:
+- Standard SGD on MNIST:
 
 ```sh
-python demo.py --data <path_to_folder_with_mnist> --save <path_to_save_dir> --alpha=0
+python main.py --data <path_to_folder_with_mnist> --save <path_to_save_dir> --loss 'SGD'
 ```
 
 Options:
-- `--alpha` (float) - hyperparameter of IW-SGD (between 0 and 1) (default 0.9)
+- `--loss` (str) - available losses: 'SGD' and 'LOW' (default 'LOW')
 - `--n_epochs` (int) - number of epochs for training (default 100)
 - `--batch_size` (int) - size of minibatch (default 256)
-- `--seed` (int) - manually set the random seed (default None)
 
 ## Performance
 
-A comparison between SGD and IW-SGD:
+A comparison between SGD and LOW:
 
-|    alpha    | Test error (%) |
+|    Loss     | Test error (%) |
 |-------------|----------------|
-| 0 (SGD)     |     2.190      |
-| 1           |     1.440      |
+|     SGD     |     1.74       |
+|     LOW     |     0.85       |
 
 ## Reference
 
 ```
 @article{unpublished,
-  title={Training Deep Neural Networks Efficiently with Importance Weighted Stochastic Gradient Descent},
-  year={2019}
+  title={LOW: Training Deep Neural Networks by Learning Optimal Sample Weights},
+  year={2020}
 }
 ```
