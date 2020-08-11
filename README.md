@@ -1,5 +1,5 @@
 # Official Pytorch implementation of "LOW: Training Deep Neural Networks by Learning Optimal Sample Weights"
-A PyTorch implementation of LOW from the paper "LOW: Training Deep Neural Networks by Learning Optimal Sample Weights" and an example on MNIST with LeNet-5.
+A PyTorch implementation of "LOW: Training Deep Neural Networks by Learning Optimal Sample Weights" with an example on MNIST using LeNet-5.
 
 ## Recent updates
 1. Original submission
@@ -19,15 +19,15 @@ A PyTorch implementation of LOW from the paper "LOW: Training Deep Neural Networ
 python main.py --data <path_to_folder_with_mnist> --save <path_to_save_dir> --loss 'LOW'
 ```
 
-- Standard SGD on MNIST:
+- Standard CE on MNIST:
 
 ```sh
-python main.py --data <path_to_folder_with_mnist> --save <path_to_save_dir> --loss 'SGD'
+python main.py --data <path_to_folder_with_mnist> --save <path_to_save_dir> --loss 'CE'
 ```
 
 Options:
-- `--loss` (str) - available losses: 'SGD' and 'LOW' (default 'LOW')
-- `--n_epochs` (int) - number of epochs for training (default 100)
+- `--loss` (str) - available losses: 'CE' and 'LOW' (default)
+- `--n_epochs` (int) - number of epochs (default 100)
 - `--batch_size` (int) - size of minibatch (default 256)
 
 ## Performance
@@ -44,6 +44,10 @@ A comparison between SGD and LOW:
 ```
 @article{unpublished,
   title={LOW: Training Deep Neural Networks by Learning Optimal Sample Weights},
-  year={2020}
+  author={Santiago, C. and Barata, C. and Sasdelli, M. and Carneiro, G. and Nascimento, J.},
+  journal={Pattern Recognition},
+  pages={1--1},
+  year={2020},
+  publisher={Elsevier}
 }
 ```
